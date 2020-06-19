@@ -40,7 +40,7 @@ const TodoList = () => {
         <div className="toDoListContainer notCompleted">
           {state.map(item => (
             <div key={item.id} className="toDoItem">
-              <h3>{item.item}</h3>
+              <h3  style= {item.completed ? { textDecoration: 'line-through' } : null}>{item.item}</h3>
               <input
                 type="checkbox"
                 value={item.completed}
