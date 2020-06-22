@@ -13,21 +13,9 @@ export const initialState = {
       id: 2,
       todo: "need to start",
       completed: false
-    },
-    {
-      id: 3,
-      todo: "need to do chores",
-      completed: false
-    },
-    {
-      id: 4,
-      todo: "need to have some sex",
-      completed: false
     }
   ]
 }
-
-
 
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -41,8 +29,6 @@ export const reducer = (state, action) => {
         ...state,
         todos: [...state.todos, newTodo]
       }
-
-
     case TOGGLE_COMPLETE:
       return {
         ...state,
