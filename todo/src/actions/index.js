@@ -1,22 +1,16 @@
-let nextTodoId = 0
-export const addTodo = text => ({
-  type: 'ADD_TODO',
-  id: nextTodoId++,
-  text
-})
+import React, {useReducer } from 'react';
+import { initialState, reducer } from './reducers/index';
 
-export const setVisibilityFilter = filter => ({
-  type: 'SET_VISIBILITY_FILTER',
-  filter
-})
+const [state, dispatch] = useReducer(reducer, initialState)
+  const addTodo = (e,todo) => {
+    e.preventDefault();
+    dispatch({ type: 'ADD_TODO', payload: todo})
+  }
+  const toggleTodo = toggleid => {
+    dispatch({ type: 'TOGGLE_TODO', payload: toggleid })
+  }
 
-export const toggleTodo = id => ({
-  type: 'TOGGLE_TODO',
-  id
-})
-
-export const VisibilityFilters = {
-  SHOW_ALL: 'SHOW_ALL',
-  SHOW_COMPLETED: 'SHOW_COMPLETED',
-  SHOW_ACTIVE: 'SHOW_ACTIVE'
-}
+  const clearCompleted = e => {
+    e.preventDefault();
+    dispatch({ type: 'CLEAR_COMPLETED' })
+  }
